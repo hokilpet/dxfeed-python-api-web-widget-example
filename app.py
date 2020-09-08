@@ -28,7 +28,7 @@ app.layout = html.Div([
     html.Div([html.Img(src='assets/dxfeed_logo.png', id='logo'),
               html.Span('Python API Web Widget Example', id='app-title')],
              className="header"),
-    dcc.Markdown(TEXTS.get('header'), dangerously_allow_html=True),
+    dcc.Markdown(TEXTS.get('header'), className='md-text', dangerously_allow_html=True),
     html.Div([
         dcc.Interval(
                 id='interval-component',
@@ -76,4 +76,4 @@ def update_candle_graph(n, stocks):
 
 
 if __name__ == '__main__':
-    app.run_server(debug=True, dev_tools_silence_routes_logging=True)
+    app.run_server(debug=False, dev_tools_silence_routes_logging=True)
