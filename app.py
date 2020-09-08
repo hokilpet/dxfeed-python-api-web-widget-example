@@ -68,7 +68,9 @@ def update_candle_graph(n, stocks):
 
     return dict(data=plots, layout=go.Layout(title='AAPL/IBM candles',
                                              showlegend=False,
-                                             uirevision=True))
+                                             uirevision=True,
+                                             font=dict(family="Open Sans, serif", size=18,)
+                                             ))
 
 
 if __name__ == '__main__':
