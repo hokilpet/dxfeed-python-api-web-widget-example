@@ -1,0 +1,19 @@
+H1 { text-align: center }
+
+body {
+    font-family: 'Open Sans', serif;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+    /*color: #53565A;*/
+    font-size: 1.5rem;
+}
+
+#logo {
+    width: 400px;
+}
+
+#candle-stocks {
+    display: flex;
+    justify-content: center;
+}

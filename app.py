@@ -1,9 +1,9 @@
 from texts import TEXTS
+from pathlib import Path
 from utils.handlers import CandleHandler
 import dxfeed as dx
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
-
 
 # Dash imports
 import dash
@@ -22,25 +22,26 @@ candle_handler = CandleHandler(40)
 candle_subscription.set_event_handler(candle_handler).add_symbols(['AAPL&Q{=5m}', 'IBM&Q{=5m}'])
 
 # Dash app
-app = dash.Dash(__name__)
+app = dash.Dash(__name__, title='DxFeed Candle Charting')
 app.layout = html.Div([
-    html.Link(rel='stylesheet', href='/static/stylesheet.css'),
-    dcc.Markdown(TEXTS.get('header')),
+    html.Link(rel='stylesheet', href='/assets/stylesheet.css'),
+    html.Img(src='assets/dxfeed_logo.png', id='logo'),
+    dcc.Markdown(TEXTS.get('header'), dangerously_allow_html=True),
     html.Div([
         dcc.Interval(
                 id='interval-component',
                 interval=5*60*1000,  # in milliseconds
                 n_intervals=0
-            ),
-            dcc.Graph(id='candle-graph'),
-            dcc.RadioItems(
-                id='candle-stocks',
-                options=[
-                    {'label': 'AAPL', 'value': 'AAPL'},
-                    {'label': 'IBM', 'value': 'IBM'},
-                ],
-                value='AAPL'
-            )
+        ),
+        dcc.Graph(id='candle-graph'),
+        dcc.RadioItems(
+            id='candle-stocks',
+            options=[
+                {'label': 'AAPL', 'value': 'AAPL'},
+                {'label': 'IBM', 'value': 'IBM'},
+            ],
+            value='AAPL'
+        )
     ])
 ])
 
