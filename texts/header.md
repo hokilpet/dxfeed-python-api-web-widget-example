@@ -1,5 +1,3 @@
-# DxFeed Python API Web Widget Example
-
 Implementation details and source code: 
 <dccLink href="https://github.com/dxFeed/dxfeed-python-api-web-widget-example" target="_blank"
  children="github.com/dxFeed/dxfeed-python-api-web-widget-example" />

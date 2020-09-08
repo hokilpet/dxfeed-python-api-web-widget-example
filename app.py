@@ -25,7 +25,9 @@ candle_subscription.set_event_handler(candle_handler).add_symbols(['AAPL&Q{=5m}'
 app = dash.Dash(__name__, title='DxFeed Candle Charting')
 app.layout = html.Div([
     html.Link(rel='stylesheet', href='/assets/stylesheet.css'),
-    html.Img(src='assets/dxfeed_logo.png', id='logo'),
+    html.Div([html.Img(src='assets/dxfeed_logo.png', id='logo'),
+              html.Span('Python API Web Widget Example', id='app-title')],
+             className="header"),
     dcc.Markdown(TEXTS.get('header'), dangerously_allow_html=True),
     html.Div([
         dcc.Interval(
