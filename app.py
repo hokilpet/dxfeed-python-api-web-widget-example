@@ -13,7 +13,7 @@ import plotly.graph_objects as go
 from dash.dependencies import Input, Output
 
 
-# DxFeed init
+# dxFeed init
 date_time = datetime.now() - relativedelta(hours=1)
 endpoint = dx.Endpoint('demo.dxfeed.com:7300')
 
@@ -22,7 +22,7 @@ candle_handler = CandleHandler(40)
 candle_subscription.set_event_handler(candle_handler).add_symbols(['AAPL&Q{=5m}', 'AMZN&Q{=5m}'])
 
 # Dash app
-app = dash.Dash(__name__, title='DxFeed Candle Charting')
+app = dash.Dash(__name__, title='dxFeed Candle Charting')
 app.layout = html.Div([
     html.Link(rel='stylesheet', href='/assets/stylesheet.css'),
     html.Div([html.Img(src='assets/dxfeed_logo.png', id='logo'),
